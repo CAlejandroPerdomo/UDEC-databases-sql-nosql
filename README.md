@@ -1,65 +1,42 @@
 # Práctica de bases de datos NewSQL y NoSQL — CockroachDB y MongoDB
 
-Informe técnico en LaTeX que documenta la práctica de laboratorio sobre bases de
-datos NewSQL y NoSQL, realizada por **Cristian Alejandro Perdomo Rivas**.
+Práctica de laboratorio sobre bases de datos NewSQL y NoSQL, realizada por
+**Cristian Alejandro Perdomo Rivas**.
 
-## Contenido del informe
+Sobre una misma base de datos académica `Universidad` se ejecuta el ciclo básico
+de gestión de datos (crear, insertar, consultar, actualizar y eliminar) en dos
+motores con paradigmas distintos.
 
-El documento cubre, sobre una misma base de datos académica `Universidad`:
+## NewSQL — CockroachDB
 
-- **NewSQL (CockroachDB)**: conexión desde DBeaver a CockroachDB Cloud, creación
-  de base de datos, esquema y tabla, e inserción, consulta, actualización y
-  eliminación de registros con SQL.
-- **NoSQL (MongoDB)**: conexión desde MongoDB Compass y `mongosh` a MongoDB
-  Atlas, creación de base y colección, e inserción, consulta, actualización y
-  eliminación de documentos.
+Trabajo con el motor SQL distribuido **CockroachDB**, conectado desde el cliente
+DBeaver a un clúster de CockroachDB Cloud (región AWS us-east-1).
 
-El informe incluye portada (APA 7), resumen, introducción, objetivos, marco
-teórico, desarrollo, resultados y análisis, conclusiones y referencias, con las
-22 capturas de pantalla de la práctica insertadas con numeración, título y
-explicación.
+- Configuración de la conexión con el controlador JDBC de CockroachDB.
+- Creación de la base de datos `Universidad`, del esquema `academico` y de la
+  tabla `academico.estudiantes` (`id`, `nombre`, `edad`, `carrera`, `semestre`).
+- Inserción de tres registros, consultas (completa y filtrada por carrera),
+  actualización de un registro y eliminación de otro.
 
-## Archivos principales
+Recursos:
 
-```
-Taller_004/
-├── main.tex          # Fuente LaTeX del informe
-├── referencias.bib   # Referencias bibliográficas (APA 7, BibTeX)
-├── main.pdf          # PDF generado (compilado)
-├── NewSQL/
-│   ├── *.png         # Capturas de pantalla de CockroachDB (DBeaver)
-│   └── Script/script.sql
-├── NoSQL/
-│   ├── *.png         # Capturas de pantalla de MongoDB (Compass/mongosh)
-│   └── Script/script.js
-└── README.md
-```
+- `NewSQL/Script/script.sql` — sentencias SQL de la práctica.
+- `NewSQL/*.png` — capturas de pantalla de cada paso en DBeaver.
 
-## Cómo compilar
+## NoSQL — MongoDB
 
-Se requiere una distribución de TeX con `apacite` instalado. Secuencia completa:
+Trabajo con la base orientada a documentos **MongoDB**, mediante MongoDB Compass
+y el shell `mongosh` contra un clúster de MongoDB Atlas (región AWS us-east-1).
 
-```bash
-pdflatex main
-bibtex main
-pdflatex main
-pdflatex main
-```
+- Configuración de la conexión (`mongodb+srv`) y verificación con `ping`.
+- Creación de la base `Universidad` y de la colección `estudiantes`.
+- Inserción de tres documentos, consultas (completa y filtrada por carrera),
+  actualización de un documento y eliminación de otro.
 
-El PDF resultante es `main.pdf`.
+Recursos:
 
-## Referencias
-
-Las fuentes bibliográficas (formato APA 7) fueron verificadas y publicadas entre
-2022 y 2025:
-
-- Reid, R. (2022). *Practical CockroachDB*. Apress.
-- Tankoano, J. (2025). Multi-model Database Design and Query Processing in
-  NewSQL DBMSs. *American Journal of Computer Science and Technology, 8*(2).
-- Carvalho, I., Sá, F., & Bernardino, J. (2022). NoSQL Document Databases
-  Assessment: Couchbase, CouchDB, and MongoDB.
-- Cockroach Labs (2025). *CockroachDB Documentation*.
-- MongoDB, Inc. (2025). *MongoDB Manual*.
+- `NoSQL/Script/script.js` — comandos de la práctica.
+- `NoSQL/*.png` — capturas de pantalla de cada paso en Compass y `mongosh`.
 
 ## Repositorio
 
